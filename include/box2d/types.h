@@ -1092,11 +1092,20 @@ typedef struct b2ContactHitEvent
 	/// point where the two shapes were not touching at the beginning of the time step.
 	b2Vec2 point;
 
+	/// The sum of all contact points. Useful for retrieving other contact point and other things
+	b2Vec2 pointSum;
+
 	/// Normal vector pointing from shape A to shape B
 	b2Vec2 normal;
 
 	/// The speed the shapes are approaching. Always positive. Typically in meters per second.
 	float approachSpeed;
+
+	/// The impulse along the normal vector of point
+	float normalImpulse;
+
+	/// The friction impulse of point
+	float tangentImpulse;
 } b2ContactHitEvent;
 
 /// Contact events are buffered in the Box2D world and are available
